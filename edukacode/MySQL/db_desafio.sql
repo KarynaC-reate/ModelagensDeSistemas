@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS db_desafio;
+
+CREATE TABLE IF NOT EXISTS tb_lead(
+nome VARCHAR(50),
+email VARCHAR(50),
+telefone INT(11)
+
+)AUTO_INCREMENT=0;
+
+SELECT * FROM tb_lead;
