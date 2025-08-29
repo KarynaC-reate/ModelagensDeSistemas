@@ -1,44 +1,26 @@
 package br.com.edukacode.api;
 
-public class Genero {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;   
+import lombok.NoArgsConstructor;
 
-    private Long id;
+@Table(name = "tb_genero")
+@Entity(name = "genero")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of="id")
+
+class Genero {
+    @Id 
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    private long id;
     private String nome;
-
-    //Construtor vazio
-    public Genero() {
-    }
-
-    //Construtor
-    public Genero(Long id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
-
-    //Getter
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    //Setter
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String toString() {
-        return "Genero{" +
-               "id=" + id +
-               ", nome='" + nome + '\'' +
-               '}';
-    }
 }
     
