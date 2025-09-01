@@ -7,39 +7,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/lead")
 
 public class LeadController {
-    @Autowired // Injeção de dependência
+    @Autowired  //injeção de dependência
     private LeadRepository repository;
-
-// Métodos para gerenciar leads
-
     @PostMapping
-    public String criarLead(@RequestBody DadosCadastroLead dados){
-        System.out.println("Lead recebido:" +dados);
-        repository.save(new Lead(null, dados.nome(),dados.email(),dados.telefone()));
-        return "Lead criado com sucesso! ";
+    public String criarLead(@RequestBody @Valid DadosCadastroLead dados) {
+        // Implementação do método para criar um lead
+        System.out.println("Lead criado com os dados: " + dados);
+        //null - persitence
+        //sem null - merge
+        repository.save(new Lead(null,dados.nome(),dados.email(),dados.telefone(),dados.cpf())); 
+        return "Lead criado com sucesso!";
     }
 
     @GetMapping
-    public String listarLead(@RequestParam int pagina, @RequestParam int tamanho){
-        return "Listar leads - página: " + pagina + ", tamanho: " + tamanho;
+    public String listarLead() {
+        return null;
         
     }
 
     @PutMapping
-    public void atualizarLead(){
-        
+    public void atualizarLead() {
+        // Implementação do método para atualizar um lead existente
     }
-    @DeleteMapping
-    public void excluirLead(){
-        
-    }
-   
-}
 
+    @DeleteMapping
+    public void excluirLead() {
+        // Implementação do método para excluir um lead
+    }
+
+}

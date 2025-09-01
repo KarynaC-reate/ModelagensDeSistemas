@@ -1,0 +1,1 @@
+alter table tbleads add cpf varchar(11) not null;

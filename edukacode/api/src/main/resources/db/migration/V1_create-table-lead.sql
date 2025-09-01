@@ -1,7 +1,12 @@
-create table if not exists tb_lead(
-    id bigint(20) not null auto_increment,
-    nome varchar(255) not null,
-    email varchar(255) not null,
-    telefone varchar(255) not null,
-    primary key(id)
-);
+CREATE TABLE tblead(
+   id BIGINT NOT NULL auto_increment,
+   nome VARCHAR(100) NOT NULL,   
+   email VARCHAR(100) NOT NULL,
+   telefone VARCHAR(100) NOT NULL,   
+   PRIMARY KEY(id)
+)
+
+CREATE TABLE tbgenero(
+   id BIGINT NOT NULL auto_increment primary key,
+   nome VARCHAR(100) NOT NULL,   
+)
