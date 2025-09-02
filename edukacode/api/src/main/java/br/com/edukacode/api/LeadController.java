@@ -1,5 +1,6 @@
 package br.com.edukacode.api;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import jakarta.validation.Valid;
 
 @RestController
@@ -27,10 +27,11 @@ public class LeadController {
         return "Lead criado com sucesso!";
     }
 
+    // EXERCÍCIO DA PROVA
     @GetMapping
-    public String listarLead() {
-        return null;
-        
+    public List<DadosListagemLead> listarLeads() {
+        return repository.findAll().stream().map(DadosListagemLead::new).toList();
+    
     }
 
     @PutMapping
