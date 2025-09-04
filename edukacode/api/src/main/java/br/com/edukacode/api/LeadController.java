@@ -31,11 +31,9 @@ public class LeadController {
         return "Lead criado com sucesso!";
     }
 
-    // EXERCÍCIO DA PROVA
     @GetMapping
     public Page<DadosListagemLead> listarLeads(@PageableDefault(size = 15, sort = {"nome"}) Pageable paginacao) {
         return repository.findAll(paginacao).map(DadosListagemLead::new);
-    
     }
 
     @PutMapping
@@ -47,5 +45,4 @@ public class LeadController {
     public void excluirLead() {
         // Implementação do método para excluir um lead
     }
-
 }
