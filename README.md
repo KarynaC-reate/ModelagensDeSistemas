@@ -4,13 +4,6 @@ Uma API RESTful desenvolvida em **Spring Boot** para gerenciar o cadastro de lea
 
 Este projeto é resultado da aplicação prática de conceitos de Teste de Software, Implementação de Sistemas e Modelagem de Sistemas, com foco em criar uma solução robusta e escalável para um desafio real proposto pelo SENAI.
 
-<br>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge&logo=appveyor" alt="API Status"/>
-  <img src="https://img.shields.io/badge/Made%20with-Java%20&%20Spring%20Boot-orange?style=for-the-badge&logo=java" alt="Made with Java & Spring Boot"/>
-</p>
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
