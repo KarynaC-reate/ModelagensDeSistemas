@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -37,8 +38,11 @@ public class LeadController {
     }
 
     @PutMapping
-    public void atualizarLead() {
-        // Implementação do método para atualizar um lead existente
+    @Transactional
+    public String atualizarLead(@RequestBody DadosAtualizacaoLead dados) {
+        var lead = repository.getReferenceById(dados.id());
+        lead.atualizarInformacoes(dados);
+        return "Lead atualizado com sucesso!";
     }
 
     @DeleteMapping
